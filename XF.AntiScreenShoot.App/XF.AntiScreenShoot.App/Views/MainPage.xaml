@@ -8,14 +8,26 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Prevent Screen Shoot" 
+
+        <!--
+            <Label Text="Prevent Screen Shoot" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+            <Switch
+                IsToggled="False"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand" 
+                Toggled="Switch_Toggled" />
+        -->
+
+
+        <Label Text="{Binding ScreenShootState, Mode=TwoWay}" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
         <Switch
-            IsToggled="False"
+            IsToggled="{Binding IsScreenShootToggled, Mode=TwoWay}"
             HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand" 
-            Toggled="Switch_Toggled" />
+            VerticalOptions="CenterAndExpand" />
 
 
     </StackLayout>

@@ -1,14 +1,12 @@
-﻿using System;
-
-using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-
-namespace XF.AntiScreenShoot.App.Droid
+﻿namespace XF.AntiScreenShoot.App.Droid
 {
+    using Android.App;
+    using Android.Content.PM;
+    using Android.OS;
+    using Android.Runtime;
+    using Android.Views;
+    using Xamarin.Essentials;
+
     [Activity(Label = "XF.AntiScreenShoot.App", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -19,7 +17,7 @@ namespace XF.AntiScreenShoot.App.Droid
 
             base.OnCreate(savedInstanceState);
 
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication
                 (
@@ -29,11 +27,23 @@ namespace XF.AntiScreenShoot.App.Droid
                             {
                                 if (x)
                                 {
-                                    this.Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
+                                    Window
+                                        .SetFlags
+                                            (
+                                                  WindowManagerFlags
+                                                                .Secure
+                                                , WindowManagerFlags
+                                                                .Secure
+                                            );
                                 }
                                 else
                                 {
-                                    this.Window.ClearFlags(WindowManagerFlags.Secure);
+                                    Window
+                                        .ClearFlags
+                                            (
+                                                WindowManagerFlags
+                                                                .Secure
+                                            );
                                 }
                             }
                         )
@@ -41,7 +51,7 @@ namespace XF.AntiScreenShoot.App.Droid
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
