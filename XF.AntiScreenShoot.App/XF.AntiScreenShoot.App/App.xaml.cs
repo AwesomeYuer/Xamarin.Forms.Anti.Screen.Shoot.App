@@ -6,11 +6,10 @@ namespace XF.AntiScreenShoot.App
 {
     public partial class App : Application
     {
-        public App(Action<bool> onScreenShootToggledProcessAction)
+        public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage(onScreenShootToggledProcessAction);
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

@@ -1,16 +1,17 @@
 ﻿namespace XF.AntiScreenShoot.App.ViewModels
 {
+    using Microshaoft;
     //using PropertyChanged;
     using System;
     using System.ComponentModel;
     //[AddINotifyPropertyChangedInterface]
     public class ScreenShooterSwitcherViewModel : INotifyPropertyChanged
     {
-        private readonly Action<bool> _action;
-        public ScreenShooterSwitcherViewModel(Action<bool> onScreenShootToggledProcessAction)
-        {
-            _action = onScreenShootToggledProcessAction;
-        }
+        //public Action<bool> OnScreenShootToggledProcessAction;
+        //public ScreenShooterSwitcherViewModel(Action<bool> onScreenShootToggledProcessAction)
+        //{
+        //    _action = onScreenShootToggledProcessAction;
+        //}
         //[AlsoNotifyFor("ScreenShootState")]
         public bool IsScreenShootToggled
         {
@@ -45,7 +46,7 @@
                             );
             if (propertyName == "IsScreenShootToggled")
             {
-                _action(IsScreenShootToggled);
+                ScreenShooterHelper.OnProcessAction(IsScreenShootToggled);
             }
         }
     }

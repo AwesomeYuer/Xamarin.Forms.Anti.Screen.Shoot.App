@@ -10,10 +10,10 @@
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        public MainPage(Action<bool> onScreenShootToggledProcessAction)
+        public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new ScreenShooterSwitcherViewModel(onScreenShootToggledProcessAction);
+            this.BindingContext = new ScreenShooterSwitcherViewModel();
         }
 
         //private void Switch_Toggled(object sender, ToggledEventArgs e)

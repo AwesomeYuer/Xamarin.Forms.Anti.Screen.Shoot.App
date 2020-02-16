@@ -23,23 +23,7 @@ namespace XF.AntiScreenShoot.App.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication
-                (
-                    new App
-                        (
-                            (x) =>
-                            {
-                                if (x)
-                                {
-                                    //this.Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
-                                }
-                                else
-                                {
-                                    //this.Window.ClearFlags(WindowManagerFlags.Secure);
-                                }
-                            }
-                        )
-                );
+            LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }
